@@ -54,6 +54,7 @@ class IncidentController extends Controller
                                           'description',
                                           'coordinate',
                                           'status',
+                                          'imagen',
                                           'initial_datetime',
                                           'final_datetime']));
         return $incident;

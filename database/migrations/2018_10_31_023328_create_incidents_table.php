@@ -21,7 +21,7 @@ class CreateIncidentsTable extends Migration
             $table->integer('status');
             $table->dateTime('initial_datetime');
             $table->dateTime('final_datetime');
-            //$table->string('imagen',191);
+            $table->string('imagen',191)->nullable();
             $table->unsignedInteger('user_id')->nullable();
             $table->unsignedInteger('typeincidenci_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null')->onUpdate('cascade');

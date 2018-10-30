@@ -30,7 +30,6 @@ class UserController extends Controller
                 'lastname' => $request->lastname,
                 'email' =>$request->email,
                 'password' => bcrypt($request->password),
-                'role' =>$request->role,
                 'phone' =>$request->phone,
                 'gender' =>$request->gender,
                 'entity' =>$request->entity,
