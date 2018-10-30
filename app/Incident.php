@@ -10,4 +10,14 @@ class Incident extends Model
     protected $fillable = [
         'name', 'description', 'coordinate', 'status', 'initial_datetime', 'final_datetime',
     ];
+
+    public function user(){
+        return $this->belongsTo('App\User');//hasMany
+
+   }
+
+   public function typeincident(){
+        return $this->belongsTo('App\TypeIncident');//hasMany
+
+   }
 }

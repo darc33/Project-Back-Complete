@@ -28,4 +28,19 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function role(){
+        return $this->belongsTo('App\Role');//hasMany
+
+   }
+
+   public function incident(){
+        return $this->hasMany('App\Incident');//hasMany
+
+   }
+
+   public function registry(){
+        return $this->hasMany('App\Registry');//hasMany
+
+   }
 }
