@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\TypeIncident;
 use Illuminate\Http\Request;
 
 class TypeIncidentController extends Controller
@@ -13,7 +14,7 @@ class TypeIncidentController extends Controller
      */
     public function index()
     {
-        //
+        return TypeIncident::all();
     }
 
     /**
@@ -24,7 +25,8 @@ class TypeIncidentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $typeincident = TypeIncident::create($request->all());
+        return $typeincident;
     }
 
     /**
@@ -35,7 +37,7 @@ class TypeIncidentController extends Controller
      */
     public function show($id)
     {
-        //
+        return TypeIncident::find($id);
     }
 
     /**
@@ -47,7 +49,9 @@ class TypeIncidentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $typeincident= TypeIncident::findOrFail($id);
+        $typeincident->update($request->only(['name','description']));
+        return $typeincident;
     }
 
     /**
@@ -58,6 +62,8 @@ class TypeIncidentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $typeincident= TypeIncident::find($id);
+        $typeincident->delete();
+        return 'ok';
     }
 }

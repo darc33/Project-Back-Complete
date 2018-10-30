@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Incident;
 use Illuminate\Http\Request;
 
 class IncidentController extends Controller
@@ -13,7 +14,7 @@ class IncidentController extends Controller
      */
     public function index()
     {
-        //
+        return Incident::all();
     }
 
     /**
@@ -24,7 +25,8 @@ class IncidentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $incident = Incident::create($request->all());
+        return $incident;
     }
 
     /**
@@ -35,7 +37,7 @@ class IncidentController extends Controller
      */
     public function show($id)
     {
-        //
+        return Incident::find($id);
     }
 
     /**
@@ -47,7 +49,14 @@ class IncidentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $incident= Incident::findOrFail($id);
+        $incident->update($request->only(['name',
+                                          'description',
+                                          'coordinate',
+                                          'status',
+                                          'initial_datetime',
+                                          'final_datetime']));
+        return $incident;
     }
 
     /**
@@ -58,6 +67,8 @@ class IncidentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $incident= Incident::find($id);
+        $incident->delete();
+        return 'ok';
     }
 }

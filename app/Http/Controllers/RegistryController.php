@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Registry;
 use Illuminate\Http\Request;
 
 class RegistryController extends Controller
@@ -13,7 +14,7 @@ class RegistryController extends Controller
      */
     public function index()
     {
-        //
+        return Registry::all();
     }
 
     /**
@@ -24,7 +25,8 @@ class RegistryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $registry = Registry::create($request->all());
+        return $registry;
     }
 
     /**
@@ -35,7 +37,7 @@ class RegistryController extends Controller
      */
     public function show($id)
     {
-        //
+        return Registry::find($id);
     }
 
     /**
@@ -47,7 +49,13 @@ class RegistryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $registry= Registry::findOrFail($id);
+        $registry->update($request->only(['type',
+                                          'initial_direction',
+                                          'final_direction',
+                                          'no_consultas',
+                                          'linestring']));
+        return $registry;
     }
 
     /**
@@ -58,6 +66,8 @@ class RegistryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $registry= Registry::find($id);
+        $registry->delete();
+        return 'ok';
     }
 }

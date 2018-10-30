@@ -22,3 +22,17 @@ Route::resource('registry','RegistryController');
 Route::resource('role','RoleController');
 Route::resource('typeincident','TypeIncidentController');
 Route::resource('user','UserController');
+
+//Autenticacion por token sistema
+//Route::apiResource('users','UserController')->middleware('client');
+
+//Autenticacion usuario especifico
+//Route::apiResource('users','UserController')->middleware('auth:api');
+
+//Route::get('login', function(){
+//    return ['error'=> 'usuario debe autenticarse'];
+//})->name('login');
+
+//Route::post('oauth/token', '\Laravel\Passport\Http\Controllers\AccessTokenController@issueToken');
+
+//Route::apiResource('users','UserController');
