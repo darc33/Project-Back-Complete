@@ -17,15 +17,15 @@ class CreateIncidentsTable extends Migration
             $table->increments('id');
             $table->string('name',191);
             $table->string('description',191);
-            $table->point('coordinate',191);
-            $table->integer('status',191);
-            $table->dateTime('initial_datetime',191);
-            $table->dateTime('final_datetime',191);
+            $table->point('coordinate');
+            $table->integer('status');
+            $table->dateTime('initial_datetime');
+            $table->dateTime('final_datetime');
             //$table->string('imagen',191);
-            $table->unsignedInteger('user_id',191);
-            $table->unsignedInteger('typeincidenci_id',191);
-            $table->foreign('user_id')->references('id')->on('User')->onDelete('set null')->onUpdate('cascade')
-            $table->foreign('typeincidenci_id')->references('id')->on('TypeIncident')->onDelete('set null')->onUpdate('cascade')
+            $table->unsignedInteger('user_id')->nullable();
+            $table->unsignedInteger('typeincidenci_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null')->onUpdate('cascade');
+            $table->foreign('typeincidenci_id')->references('id')->on('type_incidents')->onDelete('set null')->onUpdate('cascade');
             $table->timestamps();
         });
     }
