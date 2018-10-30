@@ -37,7 +37,7 @@ class RegistryController extends Controller
      */
     public function show($id)
     {
-        return Registry::find($id);
+        return Registry::find($id)->user;
     }
 
     /**
