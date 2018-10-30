@@ -24,10 +24,10 @@ Route::resource('typeincident','TypeIncidentController');
 //Route::resource('user','UserController');
 
 //Autenticacion por token sistema
-Route::apiResource('user','UserController')->middleware('client');
+//Route::apiResource('user','UserController')->middleware('client');
 
 //Autenticacion usuario especifico
-//Route::apiResource('users','UserController')->middleware('auth:api');
+Route::apiResource('user','UserController')->middleware('auth:api');
 
 Route::get('login', function(){
     return ['error'=> 'usuario debe autenticarse'];
