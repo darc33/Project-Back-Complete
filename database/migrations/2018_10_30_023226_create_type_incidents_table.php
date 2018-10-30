@@ -15,6 +15,8 @@ class CreateTypeIncidentsTable extends Migration
     {
         Schema::create('type_incidents', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name',191);
+            $table->string('description',191);
             $table->timestamps();
         });
     }
