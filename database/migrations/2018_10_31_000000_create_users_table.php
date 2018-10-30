@@ -22,9 +22,9 @@ class CreateUsersTable extends Migration
             $table->string('role',191);
             $table->string('lastname',191);
             $table->string('phone',191);
-            $table->string('gender',191);
-            $table->string('entity',191);
-            $table->string('cedula',191);
+            $table->string('gender',191)->nullable();
+            $table->string('entity',191)->nullable();
+            $table->string('cedula',191)->nullable();
             $table->unsignedInteger('role_id')->nullable();
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('set null')->onUpdate('cascade');
             $table->rememberToken();

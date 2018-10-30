@@ -17,7 +17,7 @@ class CreateIncidentsTable extends Migration
             $table->increments('id');
             $table->string('name',191);
             $table->string('description',191);
-            $table->point('coordinate');
+            $table->point('coordinate')->nullable();
             $table->integer('status');
             $table->dateTime('initial_datetime');
             $table->dateTime('final_datetime');

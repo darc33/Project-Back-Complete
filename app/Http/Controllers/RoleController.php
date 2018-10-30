@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Role;
 use Illuminate\Http\Request;
+use App\Http\Resources\RoleResource;
 
 class RoleController extends Controller
 {
@@ -14,7 +15,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return Role::all();
+        //return Role::all();
+        return RoleResource::collection(Role::all());
     }
 
     /**
@@ -37,7 +39,8 @@ class RoleController extends Controller
      */
     public function show($id)
     {
-        return Role::find($id);
+        //return Role::find($id);
+        return new RoleResource(Role::find($id));
     }
 
     /**

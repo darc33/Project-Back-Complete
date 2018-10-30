@@ -19,7 +19,7 @@ class CreateRegistriesTable extends Migration
             $table->string('initial_direction',191);
             $table->string('final_direction',191);
             $table->integer('no_consultas');
-            $table->geometry('linestring');
+            $table->geometry('linestring')->nullable();
             $table->unsignedInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null')->onUpdate('cascade');
             $table->timestamps();
