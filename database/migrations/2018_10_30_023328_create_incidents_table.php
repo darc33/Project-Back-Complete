@@ -24,6 +24,8 @@ class CreateIncidentsTable extends Migration
             //$table->string('imagen',191);
             $table->unsignedInteger('user_id',191);
             $table->unsignedInteger('typeincidenci_id',191);
+            $table->foreign('user_id')->references('id')->on('User')->onDelete('set null')->onUpdate('cascade')
+            $table->foreign('typeincidenci_id')->references('id')->on('TypeIncident')->onDelete('set null')->onUpdate('cascade')
             $table->timestamps();
         });
     }

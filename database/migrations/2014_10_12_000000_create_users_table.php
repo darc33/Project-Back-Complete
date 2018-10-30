@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('entity',191);
             $table->string('cedula',191);
             $table->unsignedInteger('role_id',191);
+            $table->foreign('role_id')->references('id')->on('Role')->onDelete('set null')->onUpdate('cascade')
             $table->rememberToken();
             $table->timestamps();
         });

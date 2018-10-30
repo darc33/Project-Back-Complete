@@ -21,6 +21,7 @@ class CreateRegistriesTable extends Migration
             $table->integer('no_consultas',191);
             $table->geometry('linestring',191);
             $table->unsignedInteger('user_id',191);
+            $table->foreign('user_id')->references('id')->on('User')->onDelete('set null')->onUpdate('cascade')
             $table->timestamps();
         });
     }
