@@ -37,7 +37,7 @@ class IncidentController extends Controller
      */
     public function show($id)
     {
-        return Incident::find($id)->typeincident;//->typeincident;//user;
+        return Incident::find($id)->user;//->typeincident;//user;
     }
 
     /**
